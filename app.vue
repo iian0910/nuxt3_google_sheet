@@ -17,7 +17,7 @@
     <div class="ticket_content mx-auto">
       <div class="ticket mb-3" v-for="(ticket, index) in sheetData" :key="index">
         <div class="d-flex">
-          <div class="main flex-1-0 pa-5">
+          <div class="main flex-grow-0 flex-shrink-1 pa-5">
             <div class="mb-3">
               <img src="/assets/images/logo.png" width="230"/>
             </div>
@@ -50,16 +50,16 @@
             </div>
             <div class="font-weight-bold">PLEASE BE AT THE BOARDING GATE 30 MINS PRIOR TO DEPARTURE. GATE CLOSES 10 MINS BEFORE.</div>
           </div>
-          <div class="sub pa-5">
+          <div class="sub flex-grow-1 flex-shrink-0 pa-5">
             <!--
               first class     頭等艙
               business class  商務艙
               economy class   經濟艙
             -->
             <div class="text-h6 font-weight-bold mb-2">{{ ticket.CLASS }}</div>
-            <div class="mb-5 font-weight-bold">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
+            <div class="mb-8 font-weight-bold">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
             <div class="d-flex justify-space-between">
-              <div>
+              <div class="mr-5">
                 <div>
                   <p class="text-caption">FLIGHT</p>
                   <p class="text-h6 font-weight-bold font-weight-bold my-2">{{ ticket.FLIGHT }}</p>
@@ -140,7 +140,7 @@
 
 <style scoped lang="scss">
 .ticket_content {
-  width: 1200px;
+  width: 800px;
 }
 .ticket {
   border: 1px solid gray;

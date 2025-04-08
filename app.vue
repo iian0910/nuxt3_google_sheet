@@ -19,7 +19,7 @@
         <div class="d-flex">
           <div class="main pr-3 py-5">
             <div class="mb-3">
-              <NuxtImg src="/logo.png" width="230"/>
+              <NuxtImg :src="logo" width="230"/>
             </div>
             <div class="mb-5 font-weight-bold">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
             <div class="d-flex justify-space-between mb-8">
@@ -91,6 +91,8 @@
 </template>
 
 <script setup>
+  import logo from '~/assets/images/logo.png'
+
   const config = useRuntimeConfig()
   const apiKey = config.public.NUXT_API_KEY
   const sheetId = config.public.NUXT_SHEET_ID

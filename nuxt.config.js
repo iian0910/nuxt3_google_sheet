@@ -4,6 +4,10 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  app: {
+    baseURL: process.env.NODE_ENV === 'production' ? '/nuxt3_google_sheet/' : '/',
+    buildAssetsDir: '/static/'
+  },
   runtimeConfig: {
     public: {
       NUXT_API_KEY: process.env.NUXT_API_KEY,

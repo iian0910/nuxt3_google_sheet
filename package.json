@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "gh-pages --dotfiles -d .output/public"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@nuxt/image": "^1.10.0",
+    "gh-pages": "^6.3.0",
     "sass": "^1.86.3",
     "vite-plugin-vuetify": "^2.1.1",
     "vuetify": "^3.8.1"

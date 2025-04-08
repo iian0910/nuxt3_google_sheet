@@ -96,9 +96,9 @@
 </template>
 
 <script setup>
-  const config = useRuntimeConfig()
-  const apiKey = config.public.NUXT_API_KEY
-  const sheetId = config.public.NUXT_SHEET_ID
+  // const config = useRuntimeConfig()
+  // const apiKey = config.public.NUXT_API_KEY
+  // const sheetId = config.public.NUXT_SHEET_ID
 
   const sheetData = ref([])
 
@@ -106,16 +106,23 @@
     initSheetContent()
   })
 
-  const initSheetContent = () => {
-    const range = "工作表1!A1:M1000";
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
+  const initSheetContent = async () => {
+    const { data, error } = await useGetSheetData()
 
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        transData(data.values)
-      })
-      .catch((error) => console.error("Error:", error))
+    if (error.value) {
+      console.error('API 發生錯誤:', error.value)
+    } else {
+      transData(data.value.values)
+    }
+    // const range = "工作表1!A1:M1000";
+    // const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
+
+    // fetch(url)
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     transData(data.values)
+    //   })
+    //   .catch((error) => console.error("Error:", error))
   }
 
   const transData = (data) => {

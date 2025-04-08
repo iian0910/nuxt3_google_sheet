@@ -1,8 +1,19 @@
 <template>
   <div>
-    <v-btn class="mb-6 mx-auto" @click="initSheetContent">
-      Get Ticket Data
-    </v-btn>
+    <div class="my-6 d-flex justify-center">
+      <v-btn
+        color="#5865f2"
+        class="mr-3" @click="initSheetContent"
+      >
+        機票渲染
+      </v-btn>
+      <v-btn
+        variant="outlined"
+        @click="keyIn"
+      >
+        輸入資料
+      </v-btn>
+    </div>
     <div class="ticket_content mx-auto">
       <div class="ticket px-7 mb-3" v-for="(ticket, index) in sheetData" :key="index">
         <div class="d-flex">
@@ -110,6 +121,15 @@
     })
 
     sheetData.value = formattedData
+  }
+
+  const keyIn = () => {
+    navigateTo('https://docs.google.com/spreadsheets/d/1FaS9wO-zK4kT_oAuKBo5KWaWa8_ENaMf9vA8tiDK_q0/edit?gid=0#gid=0', {
+      external: true,
+      open: {
+        target: '_blank'
+      }
+    })
   }
 </script>
 

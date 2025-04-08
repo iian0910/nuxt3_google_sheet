@@ -15,9 +15,9 @@
       </v-btn>
     </div>
     <div class="ticket_content mx-auto">
-      <div class="ticket px-7 mb-3" v-for="(ticket, index) in sheetData" :key="index">
+      <div class="ticket mb-3" v-for="(ticket, index) in sheetData" :key="index">
         <div class="d-flex">
-          <div class="main pr-3 py-5">
+          <div class="main flex-1-0 pa-5">
             <div class="mb-3">
               <img src="/assets/images/logo.png" width="230"/>
             </div>
@@ -50,7 +50,7 @@
             </div>
             <div class="font-weight-bold">PLEASE BE AT THE BOARDING GATE 30 MINS PRIOR TO DEPARTURE. GATE CLOSES 10 MINS BEFORE.</div>
           </div>
-          <div class="sub pl-3 py-5">
+          <div class="sub pa-5">
             <!--
               first class     頭等艙
               business class  商務艙
@@ -62,11 +62,11 @@
               <div>
                 <div>
                   <p class="text-caption">FLIGHT</p>
-                  <p class="text-h4 font-weight-bold font-weight-bold my-2">{{ ticket.FLIGHT }}</p>
+                  <p class="text-h6 font-weight-bold font-weight-bold my-2">{{ ticket.FLIGHT }}</p>
                 </div>
                 <div>
                   <p class="text-caption">GATE</p>
-                  <p class="text-h4 font-weight-bold my-2">{{ ticket.GATE }}</p>
+                  <p class="text-h6 font-weight-bold my-2">{{ ticket.GATE }}</p>
                 </div>
                 <div>
                   <p class="text-caption">ROUTE</p>
@@ -76,11 +76,11 @@
               <div>
                 <div>
                   <p class="text-caption">BOARDING TIME</p>
-                  <p class="text-h4 font-weight-bold my-2">{{ ticket.BORADINGTIME }}</p>
+                  <p class="text-h6 font-weight-bold my-2">{{ ticket.BORADINGTIME }}</p>
                 </div>
                 <div>
                   <p class="text-caption">SEAT</p>
-                  <p class="text-h4 font-weight-bold my-2">{{ ticket.SEAT }}</p>
+                  <p class="text-h6 font-weight-bold my-2">{{ ticket.SEAT }}</p>
                 </div>
                 <div>
                   <p class="text-caption">DATE</p>
@@ -146,10 +146,6 @@
   border: 1px solid gray;
 }
 .main {
-  width: 75%;
   border-right: 1px dashed gray;
-}
-.sub {
-  width: 25%;
 }
 </style>

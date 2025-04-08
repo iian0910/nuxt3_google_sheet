@@ -1,40 +1,79 @@
 <template>
   <div>
-    <button class="btn" @click="initSheetContent">Get Ticket Data</button>
-    <div class="ticket" v-for="(ticket, index) in sheetData" :key="index">
-      <div class="logo">LOGO</div>
-      <div class="info">
-        <div class="main">
-          <div class="passenger">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
-          <div class="flyInfo">
-            <div>
-              <p class="title">FLIGHT</p>
-              <p class="importantInfo">{{ ticket.FLIGHT }}</p>
-              <p class="title">ROUTE</p>
-              <p class="normalInfo">{{ ticket.ROUTE1 }} > {{ ticket.ROUTE2 }}</p>
+    <v-btn class="mb-6 mx-auto" @click="initSheetContent">
+      Get Ticket Data
+    </v-btn>
+    <div class="ticket_content mx-auto">
+      <div class="ticket px-7 mb-3" v-for="(ticket, index) in sheetData" :key="index">
+        <div class="d-flex">
+          <div class="main pr-3 py-5">
+            <div class="mb-3">
+              <NuxtImg src="/logo.png" width="230"/>
             </div>
-            <div>
-              <p class="title">BOARDING TIME</p>
-              <p class="importantInfo">{{ ticket.BORADINGTIME }}</p>
-              <p class="title">DATE</p>
-              <p class="normalInfo">{{ ticket.DATE }}</p>
+            <div class="mb-5 font-weight-bold">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
+            <div class="d-flex justify-space-between mb-8">
+              <div>
+                <p class="text-caption">FLIGHT</p>
+                <p class="text-h4 font-weight-bold font-weight-bold my-2">{{ ticket.FLIGHT }}</p>
+                <p class="text-caption">ROUTE</p>
+                <p class="text-h6 font-weight-bold my-2">{{ ticket.ROUTE1 }} > {{ ticket.ROUTE2 }}</p>
+              </div>
+              <div>
+                <p class="text-caption">BOARDING TIME</p>
+                <p class="text-h4 font-weight-bold my-2">{{ ticket.BORADINGTIME }}</p>
+                <p class="text-caption">DATE</p>
+                <p class="text-h6 font-weight-bold my-2">{{ ticket.DATE }}</p>
+              </div>
+              <div>
+                <p class="text-caption">GATE</p>
+                <p class="text-h4 font-weight-bold my-2">{{ ticket.GATE }}</p>
+                <p class="text-caption">DEPARTURE</p>
+                <p class="text-h6 font-weight-bold my-2">{{ ticket.DEPARTURE }}</p>
+              </div>
+              <div>
+                <p class="text-caption">SEAT</p>
+                <p class="text-h4 font-weight-bold my-2">{{ ticket.SEAT }}</p>
+                <p class="text-caption">TERMINAL</p>
+                <p class="text-h6 font-weight-bold my-2">{{ ticket.TERMINAL }}</p>
+              </div>
             </div>
-            <div>
-              <p class="title">GATE</p>
-              <p class="importantInfo">{{ ticket.GATE }}</p>
-              <p class="title">DEPARTURE</p>
-              <p class="normalInfo">{{ ticket.DEPARTURE }}</p>
-            </div>
-            <div>
-              <p class="title">SEAT</p>
-              <p class="importantInfo">{{ ticket.SEAT }}</p>
-              <p class="title">TERMINAL</p>
-              <p class="normalInfo">{{ ticket.TERMINAL }}</p>
+            <div class="font-weight-bold">PLEASE BE AT THE BOARDING GATE 30 MINS PRIOR TO DEPARTURE. GATE CLOSES 10 MINS BEFORE.</div>
+          </div>
+          <div class="sub pl-3 py-5">
+            <div class="text-h6 font-weight-bold mb-2">PREMIUM ECONOMY</div>
+            <div class="mb-5 font-weight-bold">{{ ticket.LASTNAME }} / {{ticket.FIRSTNAME}} {{ ticket.GENDER }}</div>
+            <div class="d-flex justify-space-between">
+              <div>
+                <div>
+                  <p class="text-caption">FLIGHT</p>
+                  <p class="text-h4 font-weight-bold font-weight-bold my-2">{{ ticket.FLIGHT }}</p>
+                </div>
+                <div>
+                  <p class="text-caption">GATE</p>
+                  <p class="text-h4 font-weight-bold my-2">{{ ticket.GATE }}</p>
+                </div>
+                <div>
+                  <p class="text-caption">ROUTE</p>
+                  <p class="text-h6 font-weight-bold my-2">{{ ticket.ROUTE1 }} > {{ ticket.ROUTE2 }}</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p class="text-caption">BOARDING TIME</p>
+                  <p class="text-h4 font-weight-bold my-2">{{ ticket.BORADINGTIME }}</p>
+                </div>
+                <div>
+                  <p class="text-caption">SEAT</p>
+                  <p class="text-h4 font-weight-bold my-2">{{ ticket.SEAT }}</p>
+                </div>
+                <div>
+                  <p class="text-caption">DATE</p>
+                  <p class="text-h6 font-weight-bold my-2">{{ ticket.DATE }}</p>
+                </div>
+              </div>              
             </div>
           </div>
-          <div class="note">PLEASE BE AT THE BOARDING GATE 30 MINS PRIOR TO DEPARTURE. GATE CLOSES 10 MINS BEFORE.</div>
         </div>
-        <div class="stub">Stub</div>
       </div>
     </div>
   </div>
@@ -74,57 +113,18 @@
   }
 </script>
 
-<style scoped>
-.btn {
-  margin-bottom: 20px;
+<style scoped lang="scss">
+.ticket_content {
+  width: 1200px;
 }
 .ticket {
-  width: 800px;
   border: 1px solid gray;
-  padding: 20px 30px;
-}
-.logo {
-  margin-bottom: 10px;
-}
-.info {
-  display: flex;
-}
-.passenger {
-  margin-bottom: 20px;
 }
 .main {
   width: 75%;
-  padding-left: 20px;
-  padding-right: 10px;
-  border-right: 1px solid gray;
+  border-right: 1px dashed gray;
 }
-.stub {
-  padding-left: 10px;
-}
-.flyInfo {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-.title {
-  font-family: 'roboto';
-  font-weight: 100;
-  font-size: 12px;
-}
-.normalInfo {
-  font-family: 'roboto';
-  margin: 10px 0;
-  font-size: 20px;
-  font-weight: bold;
-}
-.importantInfo {
-  font-family: 'roboto';
-  margin: 10px 0;
-  font-size: 36px;
-  font-weight: bold;
-}
-.note {
-  font-family: 'Roboto Mono';
-  font-weight: bold;
+.sub {
+  width: 25%;
 }
 </style>

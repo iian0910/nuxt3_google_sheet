@@ -6,5 +6,6 @@ export const useGetSheetData = () => {
   const range = "工作表1!A1:M1000";
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
 
-  return useFetch(url)
+  // 加上 immediate: false => 不在 composable 掛載時立即 fetch
+  return useFetch(url, { immediate: false })
 }

@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const values = body.values || [];
 
   const auth = new google.auth.GoogleAuth({
-    keyFile: 'server/keys/service-account.json',
+    keyFile: process.env.NODE_ENV === 'production' ? '/etc/secrets/service-account.json' : 'server/keys/service-account.json',
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 

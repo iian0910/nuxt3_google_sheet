@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <button @click="write">寫入 Google Sheet</button> -->
     <div class="my-6 d-flex justify-center">
       <v-btn
         variant="outlined"
@@ -26,7 +25,7 @@
               </div>
               <div>
                 <p class="text-caption">BOARDING TIME</p>
-                <p class="text-h4 font-weight-bold my-2">{{ ticket.BORADINGTIME }}</p>
+                <p class="text-h4 font-weight-bold my-2">{{ ticket.BOARDINGTIME }}</p>
                 <p class="text-caption">DATE</p>
                 <p class="text-h6 font-weight-bold my-2">{{ ticket.DATE }}</p>
               </div>
@@ -134,7 +133,7 @@
 
 <style scoped lang="scss">
 .ticket_content {
-  width: 800px;
+  width: 1200px;
 }
 .ticket {
   border: 1px solid gray;

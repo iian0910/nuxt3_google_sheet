@@ -8,7 +8,7 @@
     </v-btn>
     
   </div>
-  <v-sheet class="mx-auto my-6" width="1200">
+  <v-sheet class="mx-auto my-6">
     <v-form ref="form">
       <v-container>
         <v-row>
@@ -32,8 +32,6 @@
             <v-select
               v-model="gender"
               :items="genderItem"
-              item-title="name"
-              item-value="value"
               :rules="[v => !!v || 'Gender is required']"
               label="GENDER"
               required
@@ -123,8 +121,6 @@
             <v-select
               v-model="flightClass"
               :items="flightItem"
-              item-title="name"
-              item-value="value"
               :rules="[v => !!v || 'Flight class is required']"
               label="FLIGHT CLASS"
               required
@@ -174,18 +170,9 @@
     'MS'
   ]
   const flightItem = [
-    {
-      value: 'FIRST',
-      name: '頭等艙'
-    },
-    {
-      value: 'BUSINESS',
-      name: '商務艙'
-    },
-    {
-      value: 'ECONOMY',
-      name: '經濟艙'
-    }
+    'FIRST',
+    'BUSINESS',
+    'ECONOMY'
   ]
 
   const firstName = ref('')

@@ -91,6 +91,13 @@
 </template>
 
 <script setup>
+  useSeoMeta({
+    title: 'google sheets api 讀取',
+    ogTitle: 'google sheets api 讀取',
+    description: 'google sheets api 串接執行讀取的頁面',
+    ogDescription: 'google sheets api 串接執行讀取的頁面'
+  })
+
   const sheetData = ref([])
 
   onMounted(() => {

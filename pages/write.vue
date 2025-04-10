@@ -160,6 +160,13 @@
 <script setup>
   import { ref } from 'vue'
 
+  useSeoMeta({
+    title: 'google sheets api 寫入',
+    ogTitle: 'google sheets api 寫入',
+    description: 'google sheets api 串接執行寫入的頁面',
+    ogDescription: 'google sheets api 串接執行寫入的頁面'
+  })
+
   const form = ref()
 
   const genderItem = [

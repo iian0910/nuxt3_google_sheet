@@ -110,6 +110,8 @@
           class="mt-4"
           color="warning"
           block
+          :disabled="isLoading"
+          :loading="isLoading"
           @click="send"
         >
           送出
@@ -156,11 +158,15 @@
   const terminal = ref('')
   const flightClass = ref(null)
 
+  const isLoading = ref(false)
+
   const reset = () => {
     form.value.reset()
   }
 
   const send = async () => {
+    isLoading.value = true
+
     const { valid } = await form.value.validate()
 
     if (valid) {
@@ -184,6 +190,11 @@
           ],
         },
       })
+
+      if (res.success) {
+        isLoading.value = false
+        reset()
+      }
 
       console.log(res)
     }

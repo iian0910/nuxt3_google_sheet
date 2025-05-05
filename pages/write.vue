@@ -201,7 +201,7 @@
     const { valid } = await form.value.validate()
 
     if (valid) {
-      const res = await $fetch('/api/write', {
+      const res = await useFetch('/api/write', {
         method: 'POST',
         body: {
           values: [

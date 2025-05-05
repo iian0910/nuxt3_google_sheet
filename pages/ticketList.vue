@@ -96,25 +96,10 @@
     description: 'google sheets api 串接執行讀取的頁面',
     ogDescription: 'google sheets api 串接執行讀取的頁面'
   })
-
+  
+  const { data, error } = useGetSheetData()
   const sheetData = ref([])
-
-  onMounted(() => {
-    initSheetContent()
-  })
-
-  const initSheetContent = async () => {
-    const { data, error, execute } = useGetSheetData()
-
-    await execute() // execute() 本身不會回傳資料結果，它只是觸發重新 fetch 資料
-
-    if (error.value) {
-      console.error('API 發生錯誤:', error.value)
-    } else {
-      transData(data.value.values)
-    }
-  }
-
+  
   const transData = (data) => {
     const keys = data[0] // 取出標題列
     const formattedData = data.slice(1).map(row => {
@@ -123,6 +108,15 @@
 
     sheetData.value = formattedData
   }
+  
+  watchEffect(() => {
+    if (data.value) {
+      transData(data.value.values)
+    }
+    if (error.value) {
+      console.error('API 發生錯誤:', error.value)
+    }
+  })
 
   const router = useRouter()
 

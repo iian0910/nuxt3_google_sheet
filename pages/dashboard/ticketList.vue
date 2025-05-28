@@ -1,15 +1,7 @@
 <template>
   <div>
-    <div class="my-6 d-flex justify-center">
-      <v-btn
-        variant="outlined"
-        @click="back"
-      >
-        上一頁
-      </v-btn>
-    </div>
     <div class="ticket_content mx-auto">
-      <div class="ticket mb-3" v-for="(ticket, index) in sheetData" :key="index">
+      <div class="ticket mb-3 bg-white" v-for="(ticket, index) in sheetData" :key="index">
         <div class="d-flex">
           <div class="main flex-grow-0 flex-shrink-1 pa-5">
             <div class="mb-3">

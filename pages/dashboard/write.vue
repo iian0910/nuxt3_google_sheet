@@ -1,13 +1,4 @@
 <template>
-  <div class="my-6 d-flex justify-center">
-    <v-btn
-      variant="outlined"
-      @click="back"
-    >
-      上一頁
-    </v-btn>
-    
-  </div>
   <v-sheet class="mx-auto my-6">
     <v-form ref="form">
       <v-container>
